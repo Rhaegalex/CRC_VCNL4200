@@ -72,7 +72,7 @@ uint16_t CRC_VCNL4200::getProxHighInterrupt() {
 
 uint8_t CRC_VCNL4200::getInterruptFlag() {
 	uint8_t reading;
-	reading = readData(VCNL4200_INT_FLAG_REG);
+	reading = readData(VCNL4200_INT_FLAG_REG) >> 8;	//	The interrup flags are in the high byte of the register so bitshift is needed
 	return reading;
 }
 
